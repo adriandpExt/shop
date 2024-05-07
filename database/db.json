@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Walk London Milano lace up boots in black leather",
+      "image": "images.asos-media.com/products/walk-london-milano-lace-up-boots-in-black-leather/205082351-4?$n_640w$&wid=513&fit=constrain",
+      "rating": 5,
+      "price": "88.00",
+      "brandName": "Walk London",
+      "availableSizes": [37, 38, 39, 40, 41, 42],
+      "category": "shoes"
+    },
+    {
+      "id": "2",
+      "title": "Nike Dunk High Shoes",
+      "image": "static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/99486859-0ff3-46b4-949b-2d16af2ad421/custom-nike-dunk-high-by-you-shoes.png",
+      "rating": 5,
+      "price": "88.00",
+      "brandName": "NIKE",
+      "availableSizes": [37, 38, 39, 40, 41, 42],
+      "category": "shoes"
+    },
+    {
+      "id": "3",
+      "title": "Runfalcon 3.0 White",
+      "image": "assets.adidas.com/images/w_600,f_auto,q_auto/f2d9229b65c248488c78af3b00851dab_9366/Runfalcon_3.0_Shoes_White_HP7557_01_standard.jpg",
+      "rating": 5,
+      "price": "88.00",
+      "brandName": "Addidas",
+      "availableSizes": [37, 38, 39, 40, 41, 42],
+      "category": "shoes"
+    },
+    {
+      "id": "4",
+      "title": "Roundface Watch",
+      "image": "dynamic.zacdn.com/Q6cRgUUwDnqz-S6LNkzEyAn4q40=/filters:quality(70):format(webp)/https://static-ph.zacdn.com/p/nuveau-6037-7437482-1.jpg",
+      "rating": 5,
+      "price": "88.00",
+      "brandName": "Quartz",
+      "availableSizes": [37, 38, 39, 40, 41, 42],
+      "category": "watch"
+    },
+    {
+      "id": "5",
+      "title": "Biden Men's Chronograph Stainless Steel",
+      "image": "m.media-amazon.com/images/I/71VjM5LOeYL._AC_SL1500_.jpg",
+      "rating": 5,
+      "price": "88.00",
+      "brandName": "BiDen Men Watches",
+      "availableSizes": [37, 38, 39, 40, 41, 42],
+      "category": "watch"
+    }
+  ],
+  "categories": [
+    { "id": "1", "name": "shoes" },
+    { "id": "2", "name": "watch" }
+  ],
+  "brands": [
+    { "id": "1", "name": "Nike" },
+    { "id": "2", "name": "Quartz" },
+    { "id": "3", "name": "Walk London" },
+    { "id": "4", "name": "Addidas" }
+  ],
+  "wishlist": [
+    { "id": "1", "title": "Nike Dunk High Shoes", "size": [10] },
+    { "id": "2", "title": "Nike Dunk High Shoes", "size": [10] }
+  ]
+}
