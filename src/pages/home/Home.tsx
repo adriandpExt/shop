@@ -3,32 +3,21 @@ import { ProductElement } from "../../components/product-element";
 import { Hero, Stat } from "./component";
 
 import "./Landing.css";
-import { getProduct } from "../../api/Products";
+
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+
+import { useGetProduct } from "../../query/Product";
 import { Product } from "../../api/types";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const [productsDisplay, setProductsDisplay] = useState<Product[]>([]);
-
   const handleNavigateProduct = (id: string) => {
     navigate(`/shop/products/${id}`);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const products = await getProduct();
-        setProductsDisplay(products);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const product = useGetProduct();
+  console.log(product.data);
 
   return (
     <main>
@@ -41,11 +30,11 @@ const Home = () => {
         </h5>
 
         <div className="selected-products-grid max-w-7xl mx-auto">
-          {productsDisplay.slice(0, 4).map((product, index) => (
+          {product?.data?.map((item: Product) => (
             <ProductElement
-              product={product}
-              key={index}
-              handleNavigate={() => handleNavigateProduct(product.id)}
+              product={item}
+              key={item.id}
+              handleNavigate={() => handleNavigateProduct(item?.id ?? "")}
             />
           ))}
         </div>

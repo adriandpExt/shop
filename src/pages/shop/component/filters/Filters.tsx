@@ -7,38 +7,14 @@ import {
   FormRange,
   FormSelect,
 } from "../../../../components/form";
-import { useEffect, useState } from "react";
-import { getBrand, getCategory } from "../../../../api/Products";
+
 import { FilterDropdown } from "../../../../api/types";
+import { useGetBrandName, useGetCategory } from "../../../../query/Product";
+import { gender, sortBy } from "./utils";
 
 export const Filters = () => {
-  const [categories, setCategories] = useState<FilterDropdown[] | null>([]);
-  const [brandName, setBrandName] = useState<FilterDropdown[] | null>([]);
-
-  useEffect(() => {
-    const category = async () => {
-      try {
-        const list = await getCategory();
-        const listArray = list.map((item) => item.name);
-        setCategories(listArray);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    const brand = async () => {
-      try {
-        const list = await getBrand();
-        const listBrand = list.map((item) => item.name);
-        setBrandName(listBrand);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    brand();
-    category();
-  }, []);
+  const categories = useGetCategory();
+  const brandName = useGetBrandName();
 
   return (
     <form className="bg-base-200 rounded-md px-8 py-4 grid gap-x-4  gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center">
@@ -54,7 +30,7 @@ export const Filters = () => {
       <FormSelect
         label="select category"
         name="category"
-        list={categories as unknown as string[]}
+        list={categories.data as unknown as FilterDropdown[]}
         size="select-sm"
         defaultValue="all"
       />
@@ -62,7 +38,7 @@ export const Filters = () => {
       <FormSelect
         label="select brand"
         name="brand"
-        list={brandName as unknown as string[]}
+        list={brandName.data as unknown as FilterDropdown[]}
         size="select-sm"
         defaultValue="all"
       />
@@ -70,7 +46,7 @@ export const Filters = () => {
       <FormSelect
         label="sort by"
         name="order"
-        list={["asc", "desc", "price high", "price low"]}
+        list={sortBy}
         size="select-sm"
         defaultValue="a-z"
       />
@@ -78,7 +54,7 @@ export const Filters = () => {
       <FormSelect
         label="Select gender"
         name="gender"
-        list={["all", "male", "female"]}
+        list={gender}
         size="select-sm"
         defaultValue="all"
       />

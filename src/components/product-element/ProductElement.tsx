@@ -10,7 +10,7 @@ interface Product {
 }
 interface ProductElementProps {
   product: Product;
-  handleNavigate: (product: Product) => void;
+  handleNavigate: (id: string) => void;
 }
 
 export const ProductElement = (props: ProductElementProps) => {
@@ -20,7 +20,7 @@ export const ProductElement = (props: ProductElementProps) => {
     <div className="max-w-80 max-h-70">
       <div
         className="shadow-md rounded-lg max-w-sm bg-base-100"
-        onClick={() => handleNavigate(product)}
+        onClick={() => handleNavigate(product?.id ?? "")}
       >
         <img
           className="rounded-t-lg p-8"
@@ -28,7 +28,10 @@ export const ProductElement = (props: ProductElementProps) => {
           alt="product image"
         />
 
-        <div className="px-5 pb-5" onClick={() => handleNavigate(product)}>
+        <div
+          className="px-5 pb-5"
+          onClick={() => handleNavigate(product?.id ?? "")}
+        >
           <h3 className="font-semibold text-xl tracking-tight mb-5 text-accent-content">
             {product.title}
           </h3>

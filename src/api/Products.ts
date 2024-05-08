@@ -28,7 +28,7 @@ export const getBrand = async (): Promise<FilterDropdown[]> => {
   return data;
 };
 
-export const getWishlist = async (): Promise<Product  []> => {
+export const getWishlist = async (): Promise<Product[]> => {
   const res = await fetch(`${baseUrl}/wishlist`, {
     cache: "no-store",
   });

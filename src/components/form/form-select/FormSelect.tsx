@@ -1,7 +1,9 @@
+import { FilterDropdown } from "../../../api/types";
+
 interface FormSelectProps {
   label: string;
   name: string;
-  list: string[];
+  list: FilterDropdown[];
   defaultValue: string;
   size: string;
 }
@@ -20,10 +22,10 @@ export const FormSelect = (props: FormSelectProps) => {
         className={`select select-bordered ${size}`}
         defaultValue={defaultValue}
       >
-        {list.map((item) => {
+        {list?.map((item) => {
           return (
-            <option key={item} value={item}>
-              {item}
+            <option key={item.id} value={item.name}>
+              {item.name}
             </option>
           );
         })}
