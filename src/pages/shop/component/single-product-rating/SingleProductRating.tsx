@@ -1,33 +1,26 @@
 interface SingleProductRatingProps {
-  rating: string[];
+  rating: number; // Changed from string[] to number
+  onChange?: (rating: number) => void; // Optional callback function for handling rating changes
 }
 
 export const SingleProductRating = (props: SingleProductRatingProps) => {
-  const { rating } = props;
+  const { rating, onChange } = props;
 
   const renderStars = () => {
     const maxStars = 5;
-    const filledStars = rating.length;
-    const emptyStars = maxStars - filledStars;
 
     const stars = [];
 
-    if (stars.length === 0) {
-      return <p className="text-4xl text-gray-400">No rating</p>;
-    }
-
-    for (let i = 0; i < filledStars; i++) {
+    for (let i = 0; i < maxStars; i++) {
       stars.push(
-        <span key={i} className="star filled text-4xl text-orange-400">
+        <span
+          key={i}
+          className={`star ${i < rating ? "filled" : ""} text-4xl ${
+            i < rating ? "text-orange-400" : "text-gray-400"
+          }`}
+          onClick={() => onChange && onChange(i + 1)}
+        >
           &#9733;
-        </span>
-      );
-    }
-
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(
-        <span key={filledStars + i} className="star text-4xl text-gray-400">
-          &#9734;
         </span>
       );
     }

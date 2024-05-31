@@ -17,7 +17,6 @@ const Product = () => {
   const [quantity, setQuantity] = useState<number>(1);
   const [productById, setProductById] = useState<ProductProps | null>(null);
 
-  const rating: string[] = [];
   const sizeList: number[] = [5, 6, 7, 8, 9, 10];
 
   useEffect(() => {
@@ -65,7 +64,7 @@ const Product = () => {
               <h2 className="text-3xl max-sm:text-3xl text-accent-content">
                 {productById?.title}
               </h2>
-              <SingleProductRating rating={rating} />
+              <SingleProductRating rating={productById.rating as number} />
 
               <p className="text-3xl text-error">${productById?.price}</p>
               <div className="text-xl max-sm:text-lg text-accent-content">
